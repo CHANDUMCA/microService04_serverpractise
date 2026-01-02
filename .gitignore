@@ -1,10 +1,22 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+### --- PREVENT FOLDER BLOCKING ---
+# Ensure the directory itself isn't ignored so Git can see the files inside
+!spring-config/
 
-### STS ###
+### --- SPECIFIC ALLOW RULES ---
+# These rules ensure your config files are tracked even if other YAMLs are ignored
+!spring-config/application.yml
+!spring-config/application-dev.yml
+!spring-config/application-prod.yml
+
+# Alternatively, keep this wildcard for any future env-specific yaml files
+!spring-config/*.yml
+
+### --- STANDARD SPRING BOOT IGNORES ---
+target/
+!.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+### --- STS / ECLIPSE ---
 .apt_generated
 .classpath
 .factorypath
@@ -13,21 +25,15 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
+### --- INTELLIJ / VS CODE / NETBEANS ---
+.idea/
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
 .vscode/
+nbproject/private/
+build/
+
+### --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
