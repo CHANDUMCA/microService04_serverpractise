@@ -1,2 +1,9 @@
 app:
   message: Hello from DEV environment
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    username: ONBOARDING_DIT
+    password: ONBOARDING_DIT
+    driver-class-name: oracle.jdbc.OracleDriver
