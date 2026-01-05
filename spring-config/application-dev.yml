@@ -7,3 +7,6 @@ spring:
     username: ONBOARDING_DIT
     password: ONBOARDING_DIT
     driver-class-name: oracle.jdbc.OracleDriver
+  redis:
+    host: localhost
+    port: 6379

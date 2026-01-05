@@ -1,6 +1,7 @@
 package com.sunrize.it.HelloController;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,10 @@ public class HelloController {
 		this.appProperties = appProperties;
 	}
 
+	@Cacheable
 	@GetMapping("/hello")
 	public String sayHello() {
+		System.out.println("Executing hello API logic...");
 		return appProperties.getMessage();
 	}
 
